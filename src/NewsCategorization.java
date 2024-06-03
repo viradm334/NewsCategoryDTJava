@@ -22,6 +22,8 @@ public class NewsCategorization {
                 // Process each field in the row
                 if (lines.length > 1) {
                     lines[1] = DataPreprocessor.removeTags(lines[1]);
+                    lines[1] = DataPreprocessor.lowerCase(lines[1]);
+                    lines[1] = DataPreprocessor.removeSpecialCharacters(lines[1]);
                     lines[1] = DataPreprocessor.removeStopwords(lines[1]);
                 }
                 data.add(lines); // Add each processed row to the ArrayList
