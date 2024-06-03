@@ -7,8 +7,6 @@ import com.opencsv.CSVReader;
 public class NewsCategorization {
     public static void main(String[] args) throws Exception {
         ArrayList<String[]> data = new ArrayList<>(); // ArrayList to store the data
-
-        DataPreprocessor preprocessor = new DataPreprocessor();
         
         try (CSVReader csvReader = new CSVReader(new FileReader("resources/BBC News Train.csv"))) {
             String[] lines;
@@ -23,8 +21,8 @@ public class NewsCategorization {
 
                 // Process each field in the row
                 if (lines.length > 1) {
-                    lines[1] = preprocessor.removeTags(lines[1]);
-                    lines[1] = preprocessor.removeStopwords(lines[1]);
+                    lines[1] = DataPreprocessor.removeTags(lines[1]);
+                    lines[1] = DataPreprocessor.removeStopwords(lines[1]);
                 }
                 data.add(lines); // Add each processed row to the ArrayList
             }
