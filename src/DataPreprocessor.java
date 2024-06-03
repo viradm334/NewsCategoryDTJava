@@ -23,10 +23,22 @@ public class DataPreprocessor {
         "wouldn't", "you", "you'd", "you'll", "you're", "you've", "your", "yours", "yourself", "yourselves"
     );
 
+    //Remove HTML tags
     public static String removeTags(String text) {
         return text.replaceAll("<[^>]*>", "");
     }
 
+    //Remove special characters
+    public static String removeSpecialCharacters(String text) {
+        return text.replaceAll("[^a-zA-Z0-9\\s]", " ");
+    }
+
+    //Convert to lower case
+    public static String lowerCase(String text) {
+        return text.toLowerCase();
+    }
+    
+    //Remove stopwords
     public static String removeStopwords(String text) {
         List<String> words = new ArrayList<>(Arrays.asList(text.split("\\s+")));
         words.removeAll(STOPWORDS);
